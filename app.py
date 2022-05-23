@@ -25,8 +25,8 @@ from click import progressbar
 from streamlit_option_menu import option_menu
 
 #Load the model
-#with open('./notebook/model.pkl', 'rb') as fp:
-#    model = pickle.load(fp)
+with open('./notebook/model.pkl', 'rb') as fp:
+    model = pickle.load(fp)
 
 def main():
 
