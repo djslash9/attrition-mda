@@ -2,6 +2,6 @@ streamlit
 pandas
 numpy
 PIL
-matplotlib
+matplotlib.plt
 plotly
 pickle
