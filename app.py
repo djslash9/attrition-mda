@@ -223,12 +223,9 @@ def main():
             bar(selected_cols) 
             with st.expander("See explanation"):
                 st.write("""
-                    The chart above shows some numbers I picked for you.
-                    I rolled actual dice for these, so they're *guaranteed* to
-                    be random.
-                """)
-                st.image("https://static.streamlit.io/examples/dice.jpg")
-             
+                    An explanation and suggestions about the attrition is to be displayed here.
+                    
+                """)             
 
     elif selected == "Online":
         st.info("Input data below")
