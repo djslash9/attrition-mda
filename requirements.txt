@@ -1,7 +1,0 @@
-streamlit
-pandas
-numpy
-PIL
-matplotlib.plt
-plotly
-pickle
