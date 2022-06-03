@@ -122,7 +122,7 @@ def main():
     #    default_index=0, orientation="horizontal")
     #selected
 
-    selected = option_menu("", ['Explore', 'Single', 'Batch'],
+    selected = option_menu("", ['Explore', 'Online', 'Batch'],
         icons=['house', 'cloud-upload', "list-task"], 
         menu_icon="cast", default_index=0, orientation="horizontal",
         styles={
@@ -221,22 +221,81 @@ def main():
             selected_cols = st.selectbox("Select the attribute", columns)
             plt.title(selected_cols)             
             bar(selected_cols) 
-            with st.expander("See explanation"):
-                st.write("""
-                    An explanation and suggestions about the attrition is to be displayed here.
+            with st.expander("See sugessions"):
+                if selected_cols == "Age":
+                    st.write("""Employees are between *26 and 35* are more tend to be leaving the company soon. 
+                             So performe survey to get their feedback.""")
+                elif selected_cols == "BusinessTravel":
+                    st.write("""Rarely Traveled Employees are more tend to be leaving the company soon. 
+                             So give them an oppotunity to have a business travel soon.""")
+                elif selected_cols == "Department":
+                    st.write("""Employees of R&D are more tend to be leaving the company soon, followed by Sales dept. 
+                             So guide department heads to have a discussion with employees.""")
+                elif selected_cols == "DistanceFromHome":
+                    st.write("""Employees who are near less than 3km from the office are tend to be leaving the company soon. 
+                             So better having a face to face discussion with them to get to know about the job satisfaction.""")            
+                elif selected_cols == "Education":
+                    st.write("""Employees who hold bachelor or master degree are tend to be leaving the company soon. 
+                             So performe a survey their job satisfaction factors and find solutions.""") 
+                elif selected_cols == "EducationField":
+                    st.write("""Employees who hold *Technical Degree, Life Science & Medical field* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""") 
+                elif selected_cols == "EducationField":
+                    st.write("""Employees who hold *Technical Degree, Life Science & Medical field* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")                    
+                elif selected_cols == "Gender":
+                    st.write("""Most of *male employees* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")     
+                elif selected_cols == "JobInvolvement":
+                    st.write("""Employees who have *high job involment rate* are tend to be leaving the company soon. 
+                             So check their job involvement and share duties with other relevant employees.""")         
+                elif selected_cols == "JobLevel":
+                    st.write("""Employees who are in the *Junior Level* are tend to be leaving the company soon. 
+                             So make necessary promotions on time.""")    
+                elif selected_cols == "MaritalStatus":
+                    st.write("""Employees who are *Single* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")   
+                elif selected_cols == "NumCompaniesWorked":
+                    st.write("""Employees who worked for *less than 2 companies* before joining are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")
+                elif selected_cols == "OverTime":
+                    st.write("""Employees who are *having Over Time* are tend to be leaving the company soon. 
+                             So share their duties and let them leave the office on time.""")    
+                elif selected_cols == "PercentSalaryHike":
+                    st.write("""Employees who are *having less than '15%' Salary Hike* are tend to be leaving the company soon. 
+                             So make them satisfy by giving them an appropriate salary increment.""")        
+                elif selected_cols == "PerformanceRating":
+                    st.write("""Employees who are having *high Performance Rating* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")     
+                elif selected_cols == "StockOptionLevel":
+                    st.write("""Employees who are having *No Stock Option Level* are tend to be leaving the company soon. 
+                             So make their level of stock options high.""")       
+                elif selected_cols == "TotalWorkingYears":
+                    st.write("""Employees who are *less Than 10 Years* in the company are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")       
+                elif selected_cols == "WorkLifeBalance":
+                    st.write("""Employees who have *a Better Work Life Balance* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")  
+                elif selected_cols == "YearsAtCompany":
+                    st.write("""Employees who are in the company *less Than 5 Years* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""")  
+                elif selected_cols == "TrainingTimesLastYear":
+                    st.write("""Employees who had *2 or 3 training times last year* are tend to be leaving the company soon. 
+                             So performe a survey for their job satisfaction factors and find solutions.""") 
+                elif selected_cols == "YearsSinceLastPromotion":
+                    st.write("""Employees who are *not promoted last year* are tend to be leaving the company soon. 
+                             So guide department heads to have a discussion with employees.""")
+                else:
+                    st.write("""Observe the graph and get necessary actions to reduce the attrition.""")   
                     
-                """)             
-
-    elif selected == "Single":
+                                              
+    elif selected == "Online":
         st.info("Input data below")
         #Based on our optimal features selection
         st.write("### Demographic data")
         st.write("#### Personal data")
 
         c1, c2, c3= st.columns(3)
-        with c1:
-            Gender = st.radio('Gender:', ('Male', 'Female'))
-            
         with c2:
             BusinessTravel = st.radio('Business Travel:', ('Travel_Rarely', 'Travel_Frequently', 'Non-Travel'))
         if BusinessTravel == "Travel_Rarely":
@@ -372,7 +431,7 @@ def main():
             'DailyRate' : DailyRate,
             'DistanceFromHome' : DistanceFromHome,
             'EnvironmentSatisfaction' : EnvironmentSatisfaction, 
-            'Gender' : Gender,
+            # 'Gender' : Gender,
             # 'JobRole' : JobRole,
             'JobInvolvement' : JobInvolvement,
             'JobLevel' : JobLevel,
@@ -405,9 +464,7 @@ def main():
         
         if st.button('Predict'):
             prediction = model.predict(preprocess_df)
-            prediction_df = pd.DataFrame(prediction, columns=["Predictions"])
-
-            prediction_df = prediction_df.replace({1:'Yes', 0:'No'})               
+            prediction_df = pd.DataFrame(prediction, columns=["Predictions"])             
             
             if prediction == 1:
                 st.warning('The Employee is going to leave the company soon, you may get necessary actions')
