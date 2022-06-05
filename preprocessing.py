@@ -9,7 +9,7 @@ def preprocess(df, option):
     # df['Gender'] = df['Gender'].map({'Male':1, 'Female':0})
 
     #Drop values based on operational options
-    if (option == "Online"):
+    if (option == "Single"):
         columns = ['Age', 'DistanceFromHome', 'MonthlyIncome', 'NumCompaniesWorked', 'StockOptionLevel', 
                    'TotalWorkingYears', 'TrainingTimesLastYear', 'YearsAtCompany', 'YearsInCurrentRole', 
                    'YearsSinceLastPromotion', 'YearsWithCurrManager', 'BusinessTravel_Travel_Frequently', 
