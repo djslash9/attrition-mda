@@ -296,6 +296,13 @@ def main():
         st.write("#### Personal data")
 
         c1, c2, c3= st.columns(3)
+        with c1:
+            Gender = st.radio('Gender:', ('Male', 'Female'))
+        if Gender == "Male":
+            Gender = 1
+        else:
+            Gender = 2
+        
         with c2:
             BusinessTravel = st.radio('Business Travel:', ('Travel_Rarely', 'Travel_Frequently', 'Non-Travel'))
         if BusinessTravel == "Travel_Rarely":
@@ -431,7 +438,7 @@ def main():
             'DailyRate' : DailyRate,
             'DistanceFromHome' : DistanceFromHome,
             'EnvironmentSatisfaction' : EnvironmentSatisfaction, 
-            # 'Gender' : Gender,
+            'Gender' : Gender,
             # 'JobRole' : JobRole,
             'JobInvolvement' : JobInvolvement,
             'JobLevel' : JobLevel,
