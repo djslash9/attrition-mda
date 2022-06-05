@@ -457,7 +457,7 @@ def main():
         st.dataframe(features_df)
 
         #Preprocess inputs
-        preprocess_df = preprocess(features_df, 'Online')
+        preprocess_df = preprocess(features_df, 'Single')
         
     
         # st.write(prediction_df)
