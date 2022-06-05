@@ -101,7 +101,8 @@ def main():
         
         fig
  
-    
+    st.set_page_config(page_title='Employee Attrition', layout = 'wide', initial_sidebar_state = 'auto')
+# favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
     col1, col2, col3 = st.columns(3)
     
     #Setting Application title
