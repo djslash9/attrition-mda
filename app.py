@@ -122,7 +122,7 @@ def main():
     #    default_index=0, orientation="horizontal")
     #selected
 
-    selected = option_menu("", ['Explore', 'Online', 'Batch'],
+    selected = option_menu("", ['Explore', 'Single', 'Batch'],
         icons=['house', 'cloud-upload', "list-task"], 
         menu_icon="cast", default_index=0, orientation="horizontal",
         styles={
@@ -289,7 +289,7 @@ def main():
                     st.write("""Observe the graph and get necessary actions to reduce the attrition.""")   
                     
                                               
-    elif selected == "Online":
+    elif selected == "Single":
         st.info("Input data below")
         #Based on our optimal features selection
         st.write("### Demographic data")
