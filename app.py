@@ -518,8 +518,8 @@ def main():
 
       #Setting Application description
     st.markdown("""
-     :dart:  This Machine Learning App is made to predict employees leaving possibility in an organization with provided dataset.
-    The application is functional for both online prediction and batch data prediction. \n
+     :dart:  This Machine Learning App was implemented to predict employees leaving ability in an organization with provided dataset.
+    The application is functional for both single prediction and batch data prediction. \n
     This is built for Master of Data Analytics final assesment of University of Kelaniya \n
     ###### by Sisira Dharmasena @djslash9
     """)
